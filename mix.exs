@@ -4,7 +4,7 @@ defmodule GenstageExample.Mixfile do
   def project do
     [app: :genstage_example,
      version: "0.1.0",
-     elixir: "~> 1.3",
+     elixir: "~> 1.12.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      package: package(),
@@ -15,7 +15,7 @@ defmodule GenstageExample.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :postgrex],
+    [applications: [:logger, :postgrex, :gen_stage],
      mod: {GenstageExample, []}]
   end
 
@@ -30,8 +30,9 @@ defmodule GenstageExample.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:ecto, "~> 2.0"},
-      {:postgrex, "~> 0.12.1"},
+      {:ecto, "~> 3.7.1"},
+      {:ecto_sql, "~> 3.7.0"},
+      {:postgrex, "~> 0.15.10"},
       {:gen_stage, "~> 0.7"},
       {:ex_doc, ">= 0.0.0", only: :dev},
     ]
